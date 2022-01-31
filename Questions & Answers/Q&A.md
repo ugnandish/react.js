@@ -1,5 +1,5 @@
 <div>
-<h2>What is React?<h2>
+<h3>What is React?</h3>
 <ul>
   <li>React is a front-end JavaScript library developed by Facebook in 2011.</li>
   <li>It follows the component based approach which helps in building reusable UI components.</li>
