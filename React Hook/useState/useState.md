@@ -6,6 +6,9 @@
     <br/>The First value is the initial (or starting) value of the state variable.
     <br/>The Second value is a reference to the function that can be used to update the variable.</p>
   <p>Always use array destructing to assign both values at once so that they can be used in the component.</p> 
+  <p>with every render, the function being rendered is a new one - how does the 'state' persist then? Behind the scenes, there's an object representing the functional      component in the memory, which has a stack of its own.<p>
+  <p>whenever the useState() hook is used, the value of the state variable is changed and the new variable is stored in a new cell in the stack.</p>
+  <p>The stack pointer is incremented simultaneously to point towards the last cell. The value pointed to by this stack pointer is used after every render on a deliberate refresh from the user, the stack is dumped, and a fresh allocation in the memory is done when the component is rendered</p>
 </div>
 
 ```
