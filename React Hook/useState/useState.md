@@ -55,3 +55,27 @@ function App() {
 
 export default App;
 ```
+
+<p>State variables can be arrays too. This is especially useful when one needs to deal with multiple values without finding the need to declare multiple state variables using useState()</p>
+
+```
+import React, {useState} from 'react'
+
+function App() {
+  const [click, setClick] = useState([]);
+  const addNumber = () => {
+    setClick([...click, {id:click.length, value:Math.random()*10}]);
+  };
+
+  return (
+    <div>
+      <ul>
+        {click.map(item => (<li key={item.id}> {item.value} </li>))}
+      </ul>
+      <button onClick = {addNumber}> Click me </button>
+    </div>
+  );
+}
+
+export default App;
+```
