@@ -2,6 +2,10 @@
   <h1>useState</h1>
   <p>The useState Hook allows you to create, update and manipulate state inside functional components</p>
   <p>React has this concept of state, which are variables that hold data that our components depend on and many change over time.</p>
+  <p>The value returned by useState() consists of an array with two values:
+    <br/>The First value is the initial (or starting) value of the state variable.
+    <br/>The Second value is a reference to the function that can be used to update the variable.</p>
+  <p>Always use array destructing 
 </div>
 
 ```
