@@ -79,3 +79,44 @@ function App() {
 
 export default App;
 ```
+```
+import React, { useState } from 'react';
+
+function LessText({ text, maxLength }) {
+  const [hidden, setHidden] = useState(true);
+  if (text.length <= maxLength) {
+    return <span>{text}</span>;
+  }
+  return (
+    <>
+    <span>
+      {hidden ? `${text.substr(0, maxLength).trim()} ...` : text}
+      {hidden ? (
+        <a onClick={() => setHidden(false)}> read more</a>
+      ) : (
+        <a onClick={() => setHidden(true)}> read less</a>
+      )}
+    </span>
+  </>
+  );
+}
+
+export default LessText; 
+
+import React from "react";
+import LessText from './components/useState/Example5';
+function App() {
+  return (
+    <div>
+      <LessText
+    text={`Focused, hard work is the real key
+      to success. Keep your eyes on the goal, 
+      and just keep taking the next step 
+      towards completing it.`}
+    maxLength={35}
+  />
+    </div>
+  );
+}
+export default App;
+```
