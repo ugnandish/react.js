@@ -56,6 +56,28 @@ function App() {
 export default App;
 ```
 
+<p>Example: Updating state based on previous state (useState with a number)</p>
+
+```
+import React, { useState } from 'react';
+
+function StepTracker() {
+  const [steps, setSteps] = useState(0);
+  function increment() {
+    setSteps((prevState) => prevState + 1);
+  }
+  return (
+    <div>
+      Today you've taken {steps} steps!
+      <br />
+      <button onClick={increment}>I took another step</button>
+    </div>
+  );
+}
+
+export default StepTracker;
+```
+
 <p>State variables can be arrays too. This is especially useful when one needs to deal with multiple values without finding the need to declare multiple state variables using useState()</p>
 
 ```
