@@ -77,7 +77,46 @@ function StepTracker() {
 
 export default StepTracker;
 ```
+<p><b>useState with an array</b></p>
 
+```
+import React, { useState } from 'react';
+
+function ListOfThings() {
+  const [items, setItems] = useState([]);
+  const [itemName, setItemName] = useState('');
+
+  const addItem = (event) => {
+    event.preventDefault();
+    setItems([
+      ...items,
+      {
+        id: items.length,
+        name: itemName,
+      },
+    ]);
+    setItemName('');
+  };
+
+  return (
+    <>
+      <form onSubmit={addItem}>
+        <label>
+          <input name="item" type="text" value={itemName} onChange={(e) => setItemName(e.target.value)}
+          />
+        </label>
+      </form>
+      <ul>
+        {items.map((item) => (
+          <li key={item.id}>{item.name}</li>
+        ))}
+      </ul>
+    </>
+  );
+}
+
+export default ListOfThings;
+```
 <p>State variables can be arrays too. This is especially useful when one needs to deal with multiple values without finding the need to declare multiple state variables using useState()</p>
 
 ```
