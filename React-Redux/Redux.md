@@ -20,3 +20,15 @@
     <li><b>Changes are made with pure functions:</b> In order to specify how the state tree is transformed by actions, you need pure functions. Pure functions are those whose return values depend solely on the values of their arguments. Reducers are just pure functions that take the previous state and an action and return the next state. You can have a single reducer in your application and as it grows, you can split it off into smaller reducers. These smaller reducers will then manage specific parts of the state tree.</li>
   </ul>
 </div>
+<div>
+  <h2>Advantages Of Redux</h2>
+  <ul>
+    <li><b>Predictability of outcome –</b> Since there is always one source of truth, i.e. the store, there is no confusion about how to sync the current state with actions and other parts of the application.</li>
+    <li><b>Maintainability –</b> The code becomes easier to maintain with a predictable outcome and strict structure.</li>
+    <li><b>Server side rendering –</b> You just need to pass the store that is created on the server, to the client side. This is very useful for initial render and provides a better user experience as it optimizes the application performance.</li>
+    <li><b>Developer tools –</b> From actions to state changes, developers can track everything going on in the application in real time.</li>
+    <li><b>Community and ecosystem –</b> Redux has a huge community behind it which makes it even more captivating to use. A large community of talented individuals contribute to the betterment of the library and develop various applications with it.</li>
+    <li><b>Ease of testing –</b> Redux code are mostly functions which are small, pure and isolated. This makes the code testable and independent.</li>
+    <li><b>Organization –</b> Redux is very precise about how the code should be organized, this makes the code more consistent and easier when a team works with it.</li>
+  </ul>
+</div>
