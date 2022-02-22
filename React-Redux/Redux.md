@@ -13,7 +13,7 @@
   <p>Redux solves the state transfer problem by storing all of the states in a single place called a store. So, managing and transferring states becomes easier as all the states are stored in the same convenient store. Every component in the application can then directly access the required state from that store.</p>
 </div>
 <div>
-  <h2>Principles Of Redux</h2>
+  <h2>Principles of Redux</h2>
   <p>Redux follows three fundamental principles:</p>
   <ul>
     <li><b>Single source of truth:</b> The state of the entire application is stored in an object/ state tree within a single store. The single state tree makes it easier to keep track of the changes over time and debug or inspect the application. For a faster development cycle, it helps to persist the application’s state in development.</li>
@@ -22,7 +22,7 @@
   </ul>
 </div>
 <div>
-  <h2>Advantages Of Redux</h2>
+  <h2>Advantages of Redux</h2>
   <ul>
     <li><b>Predictability of outcome –</b> Since there is always one source of truth, i.e. the store, there is no confusion about how to sync the current state with actions and other parts of the application.</li>
     <li><b>Maintainability –</b> The code becomes easier to maintain with a predictable outcome and strict structure.</li>
