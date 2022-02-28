@@ -10,10 +10,16 @@
 </div>
 <div>
   <p>Example</p>
-  <p>In HTML <br/>
-    <button onclick="abc()">Hi welcome</button>
-  </p>
-  <p>In React <br/>
-    <button onClick={abc}>Hi welcome</button>
-  </p> 
+  <p>In HTML</p>
+
+   ```
+   <button onclick="abc()">Hi welcome</button>
+   ```
+  <p>In React</p>
+  
+  ```
+   <button onClick={abc}>Hi welcome</button>
+   ``` 
 </div>
+
+
