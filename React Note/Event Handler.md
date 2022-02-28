@@ -8,3 +8,12 @@
   <p>The React onClick event handler enables you to call a function & trigger an action when a user clicks an element, such as a button in your application.</p>
   <p>Event names are written in <strong>camelCase</strong>, so the onclick event is written as <strong>onClick</strong> in a react application. React event handlers appears inside <strong>curly braces</strong></p>
 </div>
+<div>
+  <p>Example</p>
+  <p>In HTML <br/>
+    <button onclick="abc()">Hi welcome</button>
+  </p>
+  <p>In React <br/>
+    <button onClick={abc}>Hi welcome</button>
+  </p> 
+</div>
