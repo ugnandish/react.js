@@ -23,6 +23,11 @@
 </div>
 <div>
   <p>Another key difference is that, whereas you would simply <strong>return false</strong> to aviod default behavior in HTML, in react you must explicitly call <strong>PreventDefault</strong></p>
+<span><strong>Note:</strong></span> 
+<ul>
+  <li>Don't add() in event handler</li>
+  <li>Event handler is a function, and again don't add a function call</li>
+</ul>
   
   ```
   <a href="#" onclick="console.log('The link was linked); return false" >Click me</a>
