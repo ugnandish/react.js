@@ -50,5 +50,6 @@
   ```
 
 </div>
-
+<div>
+  <h2>Synthetic events in React</h2>
 
