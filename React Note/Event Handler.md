@@ -21,5 +21,29 @@
    <button onClick={abc}>Hi welcome</button>
    ``` 
 </div>
+<div>
+  <p>Another key difference is that, whereas you would simply <strong>return false</strong> to aviod default behavior in HTML, in react you must explicitly call <strong>PreventDefault</strong></p>
+  
+  ```
+  <a href="#" onclick="console.log('The link was linked); return false" >Click me</a>
+  ```
+  
+  ```
+  import React from 'react'
+
+  const App = () => {
+    function handleClick(e) {
+      e.preventDefault();
+      document.write('the link was clicked');
+    }
+    return (
+      <a href="#" onClick={handleClick}>Click me</a>
+    )
+  }
+
+  export default App;
+  ```
+
+</div>
 
 
