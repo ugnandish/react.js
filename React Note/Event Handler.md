@@ -54,4 +54,6 @@
   <h2>Synthetic events in React</h2>
   <p>React implements a synthetic events system that brings consistency & high performance to React apps and interfaces. It achieves consistency by normalizing events so that they have the same properties across different browsers and plateforms.</p>
   <p>A synthetic event is a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including <strong>stopProgation()</strong> and <strong>preventDefault()</strong> expect the events work identically across all browsers</p>
+  <p>It achieves high performace by automatically using event delegation. In actuality, React doesn't attach event handlers to the nodes themselves. Instead, a single event listener is attached to the root of the document. when an event is fired, React maps it to the appropriate component element.</p>
+</div>
 
