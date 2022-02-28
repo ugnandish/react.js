@@ -56,4 +56,27 @@
   <p>A synthetic event is a cross-browser wrapper around the browser's native event. It has the same interface as the browser's native event, including <strong>stopProgation()</strong> and <strong>preventDefault()</strong> expect the events work identically across all browsers</p>
   <p>It achieves high performace by automatically using event delegation. In actuality, React doesn't attach event handlers to the nodes themselves. Instead, a single event listener is attached to the root of the document. when an event is fired, React maps it to the appropriate component element.</p>
 </div>
+<div>
+  <h2>Listening to events in React</h2>
+  <p>Tolisten events in React, add the onClick attribute, which is the event handler to the target element. This specifies the function to be executed when that element is clicked.</p>
+  
+  ```
+  import React, { Component } from 'react';
+
+class Example2 extends Component {
+  showAlert() {
+    alert("I'm an alert");
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.showAlert}>Show Alert</button>
+      </div>
+    );
+  }
+}
+
+export default Example2;
+```
+</div>
 
