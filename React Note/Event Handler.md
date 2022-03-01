@@ -172,6 +172,7 @@ export default Example7;
 <div>
   <h2>Handling events in functional components</h2>
   <h3>Call an inline function in an onClick event handler</h3>
+  <p>This is commonly used to avoid the extra function declaration outside the JSX, althrough it can be less readable and harder to maintain if the content of the inline function is too much.</p>
   
   ```
   import React from 'react';
@@ -187,4 +188,25 @@ const Example8 = () => {
 export default Example8;
 ```
   
+<h3>Update the state inside an onClick event handler</h3>
+
+```
+import React, { useState } from 'react';
+
+const Example9 = () => {
+  const [count, setCount] = useState(0);
+  return (
+    <>
+      <p>{count}</p>
+      <button onClick={() => setCount(count + 1)}>Increment</button>
+      <button onClick={() => setCount(count - 1)}>Decrement</button>
+    </>
+  );
+};
+
+export default Example9;
+```
+
+<h3>call multiple functions in an onClick event handler</h3>
+
 </div>
