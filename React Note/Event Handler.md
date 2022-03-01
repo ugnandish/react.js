@@ -85,7 +85,7 @@ export default Example2;
 </div>
 <div>
   <h2>Handling events in class components</h2>
-  <h2>Binding in the render() method</h2>
+  <h3>Binding in the render() method</h3>
   
   ```
   import React, { Component } from 'react';
@@ -115,4 +115,37 @@ class Example5 extends Component {
 
 export default Example5;
 ```
+  
+  <h3>Binding in the constructor() method</h3>
+  
+  ```
+  import React, { Component } from 'react';
+
+class Example6 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    };
+    this.ChangeText = this.ChangeText.bind(this);
+  }
+  ChangeText(event) {
+    this.setState({
+      name: event.target.value,
+    });
+  }
+  render() {
+    return (
+      <div>
+        <label htmlFor="name">Enter name</label>
+        <input type="text" id="name" onChange={this.ChangeText} />
+        <h3>{this.state.name}</h3>
+      </div>
+    );
+  }
+}
+
+export default Example6;
+```
+  
 </div>
