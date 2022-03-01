@@ -209,4 +209,22 @@ export default Example9;
 
 <h3>call multiple functions in an onClick event handler</h3>
 
+```
+import React, { useState } from 'react';
+
+const Example10 = () => {
+  const [count, setCount] = useState(0);
+  const sayHello = () => {
+    alert('Hello');
+  };
+  return (
+    <>
+      <p>{count}</p>
+      <button onClick={() => {sayHello(); setCount(count + 1);}}>Hello and Increment</button>
+    </>
+  );
+};
+
+export default Example10;
+```
 </div>
