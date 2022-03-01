@@ -262,5 +262,33 @@ const Example12 = () => {
 export default Example12;
 ```
 
+<h3>Custom components and events in React</h3>
+
+```
+import React from 'react';
+import Example13 from './components/EventHandler/Example13';
+
+function App() {
+  const handleEvent = () => {
+    alert('alert clicked');
+  };
+  return (
+    <div>
+      <Example13 click={handleEvent} />
+    </div>
+  );
+}
+export default App;
+
+import React from 'react';
+
+const Example13 = ({ click }) => {
+  return (
+    <button type="button" onClick={click}>Click me</button>
+  );
+};
+
+export default Example13;
+```
 
 </div>
