@@ -227,4 +227,23 @@ const Example10 = () => {
 
 export default Example10;
 ```
+
+<h3>Pass a parameter to an onClick event handler</h3>
+```
+import React from 'react';
+
+const Example11 = () => {
+  const sayHello = (name) => {
+    alert(`Hello ${name}!`);
+  };
+  return (
+    <div>
+      <button onClick={() => {sayHello('Nandish');}}>Say Hello</button>
+    </div>
+  );
+};
+
+export default Example11;
+```
+
 </div>
