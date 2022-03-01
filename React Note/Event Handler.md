@@ -247,4 +247,20 @@ const Example11 = () => {
 export default Example11;
 ```
 
+<h3>Use synthetic events directly inside an onClick event handler</h3>
+<p>we can also use synthetic events directly inside an onClick event handler. The button value is gotten via e.target.value and then used to alert a message.</p>
+
+```
+import React from 'react';
+
+const Example12 = () => {
+  return (
+    <button value="Hello" onClick={(e) => alert(e.target.value)}>Click me</button>
+  );
+};
+
+export default Example12;
+```
+
+
 </div>
