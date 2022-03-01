@@ -147,5 +147,24 @@ class Example6 extends Component {
 
 export default Example6;
 ```
+  <h3>Binding with arrow functions</h3>
   
+  ```
+  import React, { Component } from 'react';
+
+class Example7 extends Component {
+  handleEvent = (event) => {
+    alert("I'm an clicked");
+  };
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleEvent}>Click me</button>
+      </div>
+    );
+  }
+}
+
+export default Example7;
+```
 </div>
