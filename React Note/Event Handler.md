@@ -80,3 +80,38 @@ export default Example2;
 ```
 </div>
 
+<div>
+  <h1>Binding Event Handler</h1>
+</div>
+<div>
+  <h2>Binding in the render() method</h2>
+  
+  ```
+  import React, { Component } from 'react';
+
+class Example5 extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+    };
+  }
+  ChangeText(event) {
+    this.setState({
+      name: event.target.value,
+    });
+  }
+  render() {
+    return (
+      <div>
+        <label htmlFor="name">Enter name</label>
+        <input type="text" id="name" onChange={this.ChangeText.bind(this)} />
+        <h3>{this.state.name}</h3>
+      </div>
+    );
+  }
+}
+
+export default Example5;
+```
+</div>
