@@ -84,6 +84,7 @@ export default Example2;
   <h1>Binding Event Handler</h1>
 </div>
 <div>
+  <h2>Handling events in class components</h2
   <h2>Binding in the render() method</h2>
   
   ```
