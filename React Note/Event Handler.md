@@ -168,3 +168,23 @@ class Example7 extends Component {
 export default Example7;
 ```
 </div>
+
+<div>
+  <h2>Handling events in functional components</h2>
+  <h3>Call an inline function in an onClick event handler</h3>
+  
+  ```
+  import React from 'react';
+
+const Example8 = () => {
+  return (
+    <>
+      <button onClick={() => alert('Hello!')}>Click me</button>
+    </>
+  );
+};
+
+export default Example8;
+```
+  
+</div>
