@@ -9,4 +9,26 @@
     <li><strong>Updating:</strong> when a component is being re-rendered as a result of changes to either its props or state</li>
     <li><strong>Unmounting:</strong> when a component is being removed from the DOM</li>
     <li><strong>Error Handling:</strong> when there is an error during rendering in a lifecycle method or in the constructor of any child component.</li>
+  </ul>
+</div>
+<div>
+  <div>
+    <h3>Mounting</h3>
+    <ul>
+      <li>constructor</li>
+      <li>staticgetDerivedStateFromProps</li>
+      <li>render</li>
+      <li>componentDidMount</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Updating</h3>
+    <ul>
+      <li>constructor</li>
+      <li>staticgetDerivedStateFromProps</li>
+      <li>render</li>
+      <li>componentDidMount</li>
+    </ul>
+  </div>
+  
 </div>
