@@ -24,10 +24,24 @@
   <div>
     <h3>Updating</h3>
     <ul>
-      <li>constructor</li>
       <li>staticgetDerivedStateFromProps</li>
+      <li>shouldComponentUpdate</li>
       <li>render</li>
-      <li>componentDidMount</li>
+      <li>getSnapShotBeforeUpdate</li>
+      <li>componentDidUpdate</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Unmounting</h3>
+    <ul>
+      <li>componentWillUnmount</li>
+    </ul>
+  </div>
+  <div>
+    <h3>Error Handling</h3>
+    <ul>
+      <li>staticgetDerivedStateFromError</li>
+      <li>componentDidCatch</li>
     </ul>
   </div>
   
