@@ -18,7 +18,4 @@ const yourRef = useRef();
 const yourRef = useRef('hello world');
 ```
 
-```
-Tip: useRef is a hook, and as such can only be used in functional components! 
-To use refs in class components, you have createRef instead
-```
+<p><b>Tip:</b> useRef is a hook, and as such can only be used in functional components! To use refs in class components, you have createRef instead</p>
