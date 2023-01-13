@@ -135,3 +135,37 @@ Increase counter
   );
 }
 ```
+
+<p>To fix both of these bugs, you should use useState instead of useRef:</p>
+
+```
+import React from 'react';
+import { useEffect, useState } from "react";
+
+export default function App() {
+  // create a counter
+  const [counter, setCounter] = useState(0);
+
+  // increase the counter by one
+  const handleIncreaseCounter = () => {
+    setCounter(counter + 1);
+  };
+
+  useEffect(() => {
+    console.log("counter changed to: ", counter);
+  }, [counter]);
+
+  return (
+    <div>
+      <h1>Learn about useRef!</h1>
+      <h2>Value: {counter}</h2>
+      <button onClick={handleIncreaseCounter}>
+        Increase counter
+      </button>
+    </div>
+  );
+}
+```
+
+<h3>When to avoid using useRef?</h3>
+<p>Most of the time, if you want to persist state across re-renders of your components you should be using useState instead of useRef. Defaulting to useState, and then only using useRef.</p>
