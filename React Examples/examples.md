@@ -5,4 +5,4 @@
 <p>Faq Accordions <a href="https://codesandbox.io/s/faq-accordion-hifn3w" alt="faq accordions" target="_blank">Demo</a></p>
 
 <h3>Example 3 - Random text generator</h3>
-<a href="https://codesandbox.io/s/random-text-generator-n2fkiw" alt="Random text generator" target="_blank">Demo</a></p>
+<p>Random text generator <a href="https://codesandbox.io/s/random-text-generator-n2fkiw" alt="Random text generator" target="_blank">Demo</a></p>
