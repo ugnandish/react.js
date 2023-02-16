@@ -85,3 +85,40 @@ export function App() {
 ```
 
 <p>Another thing to note about our new code is that the nav we are rending at the top of our page is outside of our <b>Routes</b> component which means when we change pages this nav section will not be re-rendered as only the content in the <b>Routes</b> component will change when the URL changes.</p>
+
+<h2>Advanced Route Definitions</h2>
+<ol>
+  <li>Dynamic Routing</li>
+  <li>Routing Priority</li>
+  <li>Nested Routes</li>
+  <li>Multiple Routes</li>
+  <li>useRoutes Hook</li>
+</ol>
+
+<h3>Dynamic Routing</h3>
+<p>The simplest and most common advanced feature in React Router is handling dynamic routes.</p>
+
+```
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/books" element={<BookList />} />
+  <Route path="/books/:id" element={<Book />} />
+</Routes>
+```
+
+<p>The final route in the above example is a dynamic route that has a dynamic parameter of :id. Defining dynamic routes in React Router is as simple as putting a colon in front of whatever you want the dynamic part of your route to be.</p>
+<p>Pretty much always when you have a dynamic route like this you want to access the dynamic value in your custom component which is where the <b>useParams</b> hook comes in.</p>
+
+```
+import { useParams } from "react-router-dom"
+
+export function Book() {
+  const { id } = useParams()
+
+  return (
+    <h1>Book {id}</h1>
+  )
+}
+```
+
+<p>The <b>useParams</b> hook takes no parameters and will return an object with keys that match the dynamic parameters in your route. In our case our dynamic parameter is <b>:id</b> so the <b>useParams</b> hook will return an object that has a key of <b>id</b> and the value of that key will be the actual id in our URL.</p>
