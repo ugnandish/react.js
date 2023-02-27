@@ -150,3 +150,24 @@ export function Book() {
 ```
 
 <p>A <b>"*"</b> will match anything at all which makes it perfect for things like a 404 page. A route that contains a <b>"*"</b> will also be less specific than anything else so you will never accidentally match a <b>"*"</b> route when another route would have also matched.</p>
+
+<h3>Nested Routes</h3>
+<p>This nesting is pretty simple to do.</p>
+<p>All you need to do is make a parent <b>Route</b> that has the <b>path</b> prop set to the shared path for all your child <b>Route</b> components.<br/>
+Then inside the parent <b>Route</b> you can put all the child <b>Route</b> components.<br/>
+The only difference is that the <b>path</b> prop of the child <b>Route</b> components no longer includes the shared <b>/books</b> route.<br/>
+Also, the route for <b>/books</b> is replaced with a <b>Route</b> component that has no <b>path</b> prop, but instead has an index prop. 
+All this is saying is that the path of the index <b>Route</b> is the same as the parent <b>Route.</b></p>
+<p>For example we have three routes that start with <b>/books</b> so we can nest those routes inside of each other to clean up our routes.</p>
+
+```
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/books">
+    <Route index element={<BookList />} />
+    <Route path=":id" element={<Book />} />
+    <Route path="new" element={<NewBook />} />
+  </Route>
+  <Route path="*" element={<NotFound />} />
+</Routes>
+```
