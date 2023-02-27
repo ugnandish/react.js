@@ -122,3 +122,31 @@ export function Book() {
 ```
 
 <p>The <b>useParams</b> hook takes no parameters and will return an object with keys that match the dynamic parameters in your route. In our case our dynamic parameter is <b>:id</b> so the <b>useParams</b> hook will return an object that has a key of <b>id</b> and the value of that key will be the actual id in our URL.</p>
+
+<h3>Routing Priority</h3>
+<p>When we were just dealing with hard coded routes it was pretty easy to know which route would be rendered, but when dealing with dynamic routes it can be a bit more complicated.</br> For example.</p>
+
+```
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/books" element={<BookList />} />
+  <Route path="/books/:id" element={<Book />} />
+  <Route path="/books/new" element={<NewBook />} />
+</Routes>
+```
+
+<p>If we have the URL <b>/books/new</b> which route would this match? Technically, we have two routes that match.</br> Both <b>/books/:id</b> and <b>/books/new</b> will match since the dynamic route will just assume that new is the <b>:id</b> portion of the URL so React Router needs another way to determine which route to render.</p>
+<p>In older versions of React Router whichever route was defined first would be the one that is rendered so in our case the <b>/books/:id</b> route would be rendered which is obviously not what we want.<br/> Luckily, version 6 of React Router changed this so now React Router will use an algorithm to determine which route is most likely the one you want.<br/> In our case we obviously want to render the <b>/books/new</b> route so React Router will select that route for us.</p> <p>The actual way this algorithm works is very similar to CSS specificity since it will try to determine which route that matches our URL is the most specific (has the least amount of dynamic elements) and it will select that route.</p>
+<p>I also want to talk about how to create a route that matches anything.</p>
+
+```
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/books" element={<BookList />} />
+  <Route path="/books/:id" element={<Book />} />
+  <Route path="/books/new" element={<NewBook />} />
+  <Route path="*" element={<NotFound />} />
+</Routes>
+```
+
+<p>A <b>"*"</b> will match anything at all which makes it perfect for things like a 404 page. A route that contains a <b>"*"</b> will also be less specific than anything else so you will never accidentally match a <b>"*"</b> route when another route would have also matched.</p>
