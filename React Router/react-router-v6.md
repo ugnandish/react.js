@@ -231,3 +231,41 @@ The <b>Outlet</b> component is essentially a placeholder component that will ren
 ```
 
 <p>This bit of code will create two routes, <b>/contact</b> and <b>/about</b>, which both are rendered inside the <b>OtherLayout</b> component. This technique of wrapping multiple <b>Route</b> components in a parent <b>Route</b> component with no <b>path</b> prop is useful if you want those routes to share a single layout even if they don't have a similar path.</p>
+
+<h4>Outlet Context</h4>
+<p>The final important thing to know about Outlet components is they can take in a context prop which will work just like React context.</p>
+
+```
+import { Link, Outlet } from "react-router-dom"
+
+export function BooksLayout() {
+  return (
+    <>
+      <nav>
+        <ul>
+          <li><Link to="/books/1">Book 1</Link></li>
+          <li><Link to="/books/2">Book 2</Link></li>
+          <li><Link to="/books/new">New Book</Link></li>
+        </ul>
+      </nav>
+
+      <Outlet context={{ hello: "world" }} />
+    </>
+  )
+}
+```
+
+```
+import { useParams, useOutletContext } from "react-router-dom"
+
+export function Book() {
+  const { id } = useParams()
+  const context = useOutletContext()
+
+  return (
+    <h1>Book {id} {context.hello}</h1>
+  )
+}
+```
+
+<p>we are passing down a context value of <b>{ hello: "world" }</b> and then in our child component we are using the <b>useOutletContext</b> hook to access the value for our context. This is a pretty common pattern to use since often you will have shared data between all your child components which is the ideal use case for this context.</p>
