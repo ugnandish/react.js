@@ -171,3 +171,63 @@ All this is saying is that the path of the index <b>Route</b> is the same as the
   <Route path="*" element={<NotFound />} />
 </Routes>
 ```
+
+<h3>Shared Layouts</h3>
+<p>Let's imagine that we want to render a nav section with links to each book as well the new book form from any of our book pages.<br/>
+To do this normally we would need to make a shared component to store this navigation and then import that into every single book related component.<br/>
+This is a bit of a pain, though, so React Router created its own solution to solve this problem. If you pass an <b>element</b> prop to a parent route it will render that component for every single child <b>Route</b> which means you can put a shared nav or other shared components on every child page with ease.</p>
+
+```
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/books" element={<BooksLayout />}>
+    <Route index element={<BookList />} />
+    <Route path=":id" element={<Book />} />
+    <Route path="new" element={<NewBook />} />
+  </Route>
+  <Route path="*" element={<NotFound />} />
+</Routes>
+```
+
+```
+import { Link, Outlet } from "react-router-dom"
+
+export function BooksLayout() {
+  return (
+    <>
+      <nav>
+        <ul>
+          <li><Link to="/books/1">Book 1</Link></li>
+          <li><Link to="/books/2">Book 2</Link></li>
+          <li><Link to="/books/new">New Book</Link></li>
+        </ul>
+      </nav>
+
+      <Outlet />
+    </>
+  )
+}
+```
+
+<p>The way our new code will work is whenever we match a route inside the <b>/book</b> parent <b>Route</b> it will render the <b>BooksLayout</b> component which contains our shared navigation.<br/>
+Then whichever child <b>Route</b> is matched will be rendered wherever the <b>Outlet</b> component is placed inside our layout component.<br/>
+The <b>Outlet</b> component is essentially a placeholder component that will render whatever our current page's content is. This structure is incredibly useful and makes sharing code between routes incredibly easy.</p>
+<p>Now the final way you can share layouts with React Router is by wrapping child <b>Route</b> components in a parent <b>Route</b> that only defines an <b>element</b> prop and no <b>path</b> prop.</p>
+
+```
+<Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/books" element={<BooksLayout />}>
+    <Route index element={<BookList />} />
+    <Route path=":id" element={<Book />} />
+    <Route path="new" element={<NewBook />} />
+  </Route>
+  <Route element={<OtherLayout />}>
+    <Route path="/contact" element={<Contact />} />
+    <Route path="/about" element={<About />} />
+  </Route>
+  <Route path="*" element={<NotFound />} />
+</Routes>
+```
+
+<p>This bit of code will create two routes, <b>/contact</b> and <b>/about</b>, which both are rendered inside the <b>OtherLayout</b> component. This technique of wrapping multiple <b>Route</b> components in a parent <b>Route</b> component with no <b>path</b> prop is useful if you want those routes to share a single layout even if they don't have a similar path.</p>
