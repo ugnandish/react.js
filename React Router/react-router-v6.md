@@ -269,3 +269,53 @@ export function Book() {
 ```
 
 <p>we are passing down a context value of <b>{ hello: "world" }</b> and then in our child component we are using the <b>useOutletContext</b> hook to access the value for our context. This is a pretty common pattern to use since often you will have shared data between all your child components which is the ideal use case for this context.</p>
+
+<h3>Multiple Routes</h3>
+<p>Another incredibly powerful thing you can do with React Router is use multiple <b>Routes</b> components at the same time. This can be done as either two separate <b>Routes</b> components or as nested <b>Routes.</b></p>
+<h4>Separate Routes</h4>
+<p>If you want to render two different sections of content that both depend on the URL of the application then you need multiple <b>Routes</b> components. This is very common if for example you have a sidebar you want to render certain content in for certain URLs and also a main page that should show specific content based on the URL.</p>
+
+```
+import { Route, Routes, Link } from "react-router-dom"
+import { Home } from "./Home"
+import { BookList } from "./BookList"
+import { BookSidebar } from "./BookSidebar"
+
+export function App() {
+  return (
+    <>
+      <nav>
+        <ul>
+          <li><Link to="/">Home</Link></li>
+          <li><Link to="/books">Books</Link></li>
+        </ul>
+      </nav>
+
+      <aside>
+        <Routes>
+          <Route path="/books" element={<BookSidebar />}>
+        </Routes>
+      </aside>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/books" element={<BookList />} />
+      </Routes>
+    </>
+  )
+}
+```
+
+<p>In the above example we have two <b>Routes.</b><br/>
+The main <b>Routes</b> defines all the main components for our page<br/>
+Secondary <b>Routes</b> inside the <b>aside</b> that will render the sidebar for our books page when we are at <b>/books.</b><br/>
+This means if our URL is <b>/books</b> both of our <b>Routes</b> components will render out content since they both have a unique match for <b>/books</b> in their <b>Routes.</b></p>
+<p>Another thing that you can do with multiple Routes components is hardcode the location prop.</p>
+
+```
+<Routes location="/books">
+  <Route path="/books" element={<BookSidebar />}>
+</Routes>
+```
+
+<p>By hardcoding a <b>location</b> prop like this we are overriding the default behavior or React Router so no matter what the URL of our page is this <b>Routes</b> component will match its <b>Route</b> as if the URL was <b>/books.</b></p>
