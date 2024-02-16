@@ -219,3 +219,44 @@ function Greeting() {
   <li>useMemo</li>
 </ul>
 
+<h3>useState</h3>
+<p>When using useState, we initiate it at the top of our component, optionally passing an initial value for its state variable.</p> 
+<p>Employing array destructuring on the returned value allows us to access both the stored state and a function to update that state.</p>
+
+syntax:
+
+```
+import { useState } from 'react';
+
+function MyComponent() {
+  const [stateValue, setStateValue] = useState(initialValue);
+}
+```
+
+Example
+
+```
+import { useState } from 'react';
+function Counter() {
+  const [count, setCount] = useState(0);
+  function updateCount() {
+   setCount(count + 1);
+  }
+  return <button onClick={updateCount}>Count is: {count}</button>;
+}
+```
+
+<h3>useEffect</h3>
+<p>The React useEffect hook comes into play when we need to interact with the external environment, such as making API calls. Its primary purpose is to handle side effects, encompassing operations beyond our application with unpredictable outcomes.</p>
+<p>The basic syntax of useEffect involves providing a function as the first argument and an array as the second argument.</p>
+
+```
+import { useEffect } from 'react';
+function MyComponent() {
+   useEffect(() => {
+     // Perform side effect here
+   }, []);
+}
+```
+
+
