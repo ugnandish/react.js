@@ -208,5 +208,14 @@ function Greeting() {
 }
 ```
 
-
+<h2>React Hooks</h2>
+<p>The React library has incorporated numerous essential hooks</p>
+<ul>
+  <li>useState</li>
+  <li>useEffect</li>
+  <li>useRef</li>
+  <li>useContext</li>
+  <li>useCallback</li>
+  <li>useMemo</li>
+</ul>
 
