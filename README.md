@@ -140,6 +140,73 @@ const isAuthUser = useAuth();
 }
 ```
 
+<h3>React Lists</h3>
+<p>Lists of React components can be generated using the .map() function, which allows us to iterate over arrays of data and produce JSX.</p>
+
+```
+function Players() {
+const players = ["Messi", "Ronaldo", "Laspada"];
+  return (
+    <div>
+      {players.map((playerName) => (
+        <Player key={playerName} name={playerName} />
+      ))}
+    </div>
+  );
+}
+```
+
+<p>To include the key prop when looping over an array of data, and this key must be assigned a unique value, not merely an element index. In the above example, a unique value, the playerName, serves as the key.</p>
+
+<h3>React Context</h3>
+<p>React Context serves as a mechanism for seamlessly conveying data throughout our component tree, eliminating the need for relying solely on props.</p>
+<p>The challenge with props lies in the occasional need to pass them through intermediary components that don’t necessarily require the data—an issue commonly referred to as props drilling.</p>
+<p>Example: Consider this simplified scenario where props are passed unnecessarily through a ‘Body’ component:</p>
+
+```
+function App() {
+return (
+    <Body name="John Doe" />
+  );
+} 
+function Body({ name }) {
+  return (
+    <Greeting name={name} />
+  );
+} 
+function Greeting({ name }) {
+  return <h1>Welcome, {name}</h1>;
+}
+```
+
+<p>When implementing Context, we employ the createContext function provided by React. This function can be called with an initial value that becomes the starting point for the context.</p>
+<p>The resultant context comprises a Provider and a Consumer property, both functioning as components. The Provider is wrapped around the component tree where the data needs to be propagated, while the Consumer is placed within the component set to consume this value.</p>
+
+```
+import { createContext } from 'react';
+
+const NameContext = createContext('');
+
+function App() {
+  return (
+    <NameContext.Provider value="John Doe">
+      <Body />
+    </NameContext.Provider>
+  );
+} 
+
+function Body() {
+  return <Greeting />;
+}
+
+function Greeting() {
+  return (
+    <NameContext.Consumer>
+      {name => <h1>Welcome, {name}</h1>}
+    </NameContext.Consumer>
+  );
+}
+```
 
 
 
